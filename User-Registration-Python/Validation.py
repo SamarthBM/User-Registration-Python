@@ -1,8 +1,8 @@
 '''
 * @Author: Samarth BM.
-* @Date: 2021-09-21 18:32  
+* @Date: 2021-09-21 18:48  
 * @Last Modified by: Samarth BM
-* @Last Modified time: 2021-09-21 18:32
+* @Last Modified time: 2021-09-21 18:48
 * @Title: To validate user details using regex.
 '''
 
@@ -85,6 +85,24 @@ class Validation():
         """        
         try:
             return bool(re.match("^(?=.*\d)(?=.*[@#$%&])(?=.*[a-z])(?=.*[A-Z]).{8,}$", password))
+
+        except Exception as e:
+            logger.error(e)
+
+
+    def validate_email(email):
+        """
+        Description:
+            This function is to validate email.
+
+        Args:
+            email: email to validate
+
+        Returns:
+            boolean result
+        """        
+        try:
+            return bool(re.match("^[0-9A-Za-z]+(([._+-]{0,1})[0-9A-Za-z]+)*@[0-9A-Za-z]+.[a-z]{2,4}.([a-z]{2,3})*$", email))
 
         except Exception as e:
             logger.error(e)
