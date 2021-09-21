@@ -46,3 +46,22 @@ class Validation():
 
         except Exception as e:
             logger.error(e)
+
+    def validate_mobile(mobile):
+        """
+        Description:
+            This function is to validate mobile number.
+            Condition: Mobile number should start with country code 91
+            and followed by space and 10 digits.
+
+        Args:
+            mobile: Mobile number to validate
+
+        Returns:
+            boolean result
+        """        
+        try:
+            return bool(re.match("^(91)\\s[0-9]{10}$", mobile))
+
+        except Exception as e:
+            logger.error(e)
