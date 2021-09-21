@@ -1,8 +1,8 @@
 '''
 * @Author: Samarth BM.
-* @Date: 2021-09-21 15:41  
+* @Date: 2021-09-21 18:32  
 * @Last Modified by: Samarth BM
-* @Last Modified time: 2021-09-21 15:41
+* @Last Modified time: 2021-09-21 18:32
 * @Title: To validate user details using regex.
 '''
 
@@ -29,6 +29,7 @@ class Validation():
         except Exception as e:
             logger.error(e)
 
+
     def validate_last_name(lastName):
         """
         Description:
@@ -47,6 +48,7 @@ class Validation():
         except Exception as e:
             logger.error(e)
 
+
     def validate_mobile(mobile):
         """
         Description:
@@ -62,6 +64,27 @@ class Validation():
         """        
         try:
             return bool(re.match("^(91)\\s[0-9]{10}$", mobile))
+
+        except Exception as e:
+            logger.error(e)
+
+
+    def validate_password(password):
+        """
+        Description:
+            This function is to validate password.
+            Condition: 1) Must contain minimum 8 letters.
+                       2) Must contain one upper and lower case.
+                       3) Must contain one numeric and special character.
+
+        Args:
+            password: Password to validate
+
+        Returns:
+            boolean result
+        """        
+        try:
+            return bool(re.match("^(?=.*\d)(?=.*[@#$%&])(?=.*[a-z])(?=.*[A-Z]).{8,}$", password))
 
         except Exception as e:
             logger.error(e)
