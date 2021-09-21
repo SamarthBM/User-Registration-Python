@@ -45,12 +45,14 @@ class UserRegisterMain:
                 else:
                     logger.error("Invalid last name")
 
+
                 mobileNumber = input("Enter your mobile number: ")
                 if Validation.validate_mobile(mobileNumber):
                     details['Mobile'] = mobileNumber
                     logger.info("Mobile number is added")
                 else:
                     logger.error("Invalid mobile number")
+
 
                 email = input("Enter your email: ")
                 if Validation.validate_email(email):
@@ -66,6 +68,7 @@ class UserRegisterMain:
                     logger.info("Password is added")
                 else:
                     logger.error("Invalid password")
+
 
                 self.userDetails.append(details)
                 print(self.userDetails)
