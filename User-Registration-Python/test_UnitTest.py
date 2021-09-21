@@ -1,8 +1,8 @@
 '''
 * @Author: Samarth BM.
-* @Date: 2021-09-21 13:53  
+* @Date: 2021-09-21 15:47  
 * @Last Modified by: Samarth BM
-* @Last Modified time: 2021-09-21 13:53
+* @Last Modified time: 2021-09-21 15:47
 * @Title: To solve unit test cases for user details.
 '''
 
@@ -31,3 +31,23 @@ class UserValidationTest(unittest.TestCase):
         self.assertFalse(Validation.validate_first_name("$am"))
         self.assertFalse(Validation.validate_first_name("saMarth"))
 
+
+    def test_ValidLastName(self):
+        """
+        Description: 
+            In this test case when given a valid last name should return true.
+        """        
+        self.assertTrue(Validation.validate_last_name("Bm"))
+        self.assertTrue(Validation.validate_last_name("Bms"))
+
+    
+    def test_InvalidLastName(self):
+        """
+        Description: 
+            In this test case when given a invalid last name should return false.
+        """        
+        self.assertFalse(Validation.validate_first_name("bm"))
+        self.assertFalse(Validation.validate_first_name("BM"))
+        self.assertFalse(Validation.validate_first_name("Bm123"))
+        self.assertFalse(Validation.validate_first_name("Bm$"))
+        
