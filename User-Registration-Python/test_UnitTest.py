@@ -46,8 +46,27 @@ class UserValidationTest(unittest.TestCase):
         Description: 
             In this test case when given a invalid last name should return false.
         """        
-        self.assertFalse(Validation.validate_first_name("bm"))
-        self.assertFalse(Validation.validate_first_name("BM"))
-        self.assertFalse(Validation.validate_first_name("Bm123"))
-        self.assertFalse(Validation.validate_first_name("Bm$"))
+        self.assertFalse(Validation.validate_last_name("bm"))
+        self.assertFalse(Validation.validate_last_name("BM"))
+        self.assertFalse(Validation.validate_last_name("Bm123"))
+        self.assertFalse(Validation.validate_last_name("Bm$"))
+        
+
+    def test_ValidMobileNumber(self):
+        """
+        Description: 
+            In this test case when given a valid mobile number should return true.
+        """        
+        self.assertTrue(Validation.validate_mobile("91 9452147754"))
+        
+    
+    def test_InvalidMobileNumber(self):
+        """
+        Description: 
+            In this test case when given a invalid mobile number should return false.
+        """        
+        self.assertFalse(Validation.validate_mobile("9451457854"))
+        self.assertFalse(Validation.validate_mobile("919856478525"))
+        self.assertFalse(Validation.validate_mobile("8745874"))
+        self.assertFalse(Validation.validate_mobile("91 7521478$"))
         
