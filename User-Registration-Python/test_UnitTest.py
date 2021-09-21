@@ -1,8 +1,8 @@
 '''
 * @Author: Samarth BM.
-* @Date: 2021-09-21 18:41  
+* @Date: 2021-09-21 19:01  
 * @Last Modified by: Samarth BM
-* @Last Modified time: 2021-09-21 18:41
+* @Last Modified time: 2021-09-21 19:01
 * @Title: To solve unit test cases for user details.
 '''
 
@@ -90,4 +90,22 @@ class UserValidationTest(unittest.TestCase):
         self.assertFalse(Validation.validate_password("Abcde12fgh"))
 
     
+    def test_ValidEmail(self):
+        """
+        Description: 
+            In this test case when given a valid email should return true.
+        """        
+        self.assertTrue(Validation.validate_email("samarthbm18@gmail.com"))
+        self.assertTrue(Validation.validate_email("abc@yahoo.com"))
+        self.assertTrue(Validation.validate_email("abc.100@abc.com.au"))
         
+
+    def test_InvalidEmail(self):
+        """
+        Description: 
+            In this test case when given a invalid email should return false.
+        """        
+        self.assertFalse(Validation.validate_email("abc"))
+        self.assertFalse(Validation.validate_email("abc@.com.my"))
+        self.assertFalse(Validation.validate_email("abc123@gmail.a"))
+        self.assertFalse(Validation.validate_email("abc@%*.com"))
