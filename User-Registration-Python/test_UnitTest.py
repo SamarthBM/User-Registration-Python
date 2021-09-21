@@ -10,7 +10,13 @@ from Validation import Validation
 import unittest
 
 class UserValidationTest(unittest.TestCase):
+    """
+        Description:
+            This class holds all the test cases required to satisfy the
+            created methods in Validation class.
+        """ 
 
+    
     def test_ValidFirstName(self):
         """
         Description: 
@@ -95,9 +101,13 @@ class UserValidationTest(unittest.TestCase):
         Description: 
             In this test case when given a valid email should return true.
         """        
-        self.assertTrue(Validation.validate_email("samarthbm18@gmail.com"))
-        self.assertTrue(Validation.validate_email("abc@yahoo.com"))
-        self.assertTrue(Validation.validate_email("abc.100@abc.com.au"))
+
+        validEmails = ["abc@yahoo.com", "abc-100@yahoo.com", "abc.100@yahoo.com",
+                       "abc111@abc.com", "abc-100@abc.net", "abc.100@abc.com.au",
+                       "abc@1.com", "abc@gmail.com.com","abc+100@gmail.com"]
+        for mails in validEmails:
+
+            self.assertTrue(Validation.validate_email(mails))
         
 
     def test_InvalidEmail(self):
@@ -105,7 +115,10 @@ class UserValidationTest(unittest.TestCase):
         Description: 
             In this test case when given a invalid email should return false.
         """        
-        self.assertFalse(Validation.validate_email("abc"))
-        self.assertFalse(Validation.validate_email("abc@.com.my"))
-        self.assertFalse(Validation.validate_email("abc123@gmail.a"))
-        self.assertFalse(Validation.validate_email("abc@%*.com"))
+        inValidEmails = ["abc","abc@.com.my","abc123@gmail.a","abc123@.com",
+                         "abc123@.com.com",".abc@abc.com","abc()*@gmail.com","abc@%*.com",
+                         "abc..2002@gmail.com","abc.@gmail.com","abc@abc@gmail.com",
+                         "abc@gmail.com.1a","abc@gmail.com.aa.au"]
+        
+        for mails in inValidEmails:
+            self.assertFalse(Validation.validate_email(mails))
