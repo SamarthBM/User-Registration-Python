@@ -1,8 +1,8 @@
 '''
 * @Author: Samarth BM.
-* @Date: 2021-09-21 15:47  
+* @Date: 2021-09-21 18:41  
 * @Last Modified by: Samarth BM
-* @Last Modified time: 2021-09-21 15:47
+* @Last Modified time: 2021-09-21 18:41
 * @Title: To solve unit test cases for user details.
 '''
 
@@ -69,4 +69,25 @@ class UserValidationTest(unittest.TestCase):
         self.assertFalse(Validation.validate_mobile("919856478525"))
         self.assertFalse(Validation.validate_mobile("8745874"))
         self.assertFalse(Validation.validate_mobile("91 7521478$"))
+        
+
+    def test_ValidPassword(self):
+        """
+        Description: 
+            In this test case when given a valid password should return true.
+        """        
+        self.assertTrue(Validation.validate_password("Abc$123d"))
+        self.assertTrue(Validation.validate_password("$amArth18"))
+
+
+    def test_InvalidPassword(self):
+        """
+        Description: 
+            In this test case when given a invalid password should return false.
+        """        
+        self.assertFalse(Validation.validate_password("abcdef"))
+        self.assertFalse(Validation.validate_password("abcdefghi"))
+        self.assertFalse(Validation.validate_password("Abcde12fgh"))
+
+    
         
