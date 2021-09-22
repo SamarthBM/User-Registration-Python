@@ -6,6 +6,7 @@
 * @Title: To solve unit test cases for user details.
 '''
 
+from logging import NullHandler
 from Validation import Validation
 import unittest
 
@@ -122,3 +123,66 @@ class UserValidationTest(unittest.TestCase):
         
         for mails in inValidEmails:
             self.assertFalse(Validation.validate_email(mails))
+
+    def test_emptyFirstName(self):
+        """
+        Description: 
+            In this test case when given a empty first name should raise
+            null handler exception .
+        """ 
+
+        try:
+            Validation.validate_first_name("")
+        except Exception:
+            self.assertRaises(NullHandler)
+
+
+    def test_emptyLastName(self):
+        """
+        Description: 
+            In this test case when given a empty last name should raise
+            null handler exception .
+        """ 
+
+        try:
+            Validation.validate_last_name("")
+        except Exception:
+            self.assertRaises(NullHandler)
+
+
+    def test_emptyMobileNumber(self):
+        """
+        Description: 
+            In this test case when given a empty mobile number should raise
+            null handler exception .
+        """ 
+
+        try:
+            Validation.validate_mobile("")
+        except Exception:
+            self.assertRaises(NullHandler)
+
+
+    def test_emptyPassword(self):
+        """
+        Description: 
+            In this test case when given a empty password should raise
+            null handler exception .
+        """ 
+
+        try:
+            Validation.validate_password("")
+        except Exception:
+            self.assertRaises(NullHandler)
+
+    def test_emptyEmail(self):
+        """
+        Description: 
+            In this test case when given a empty email should raise
+            null handler exception .
+        """ 
+
+        try:
+            Validation.validate_email("")
+        except Exception:
+            self.assertRaises(NullHandler)
